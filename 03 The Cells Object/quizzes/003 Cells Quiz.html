@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>003 Cells Quiz</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 3, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 333452, "assessment_type": "multiple-choice", "created": "2014-10-31T00:08:22Z", "prompt": {"answers": ["Cells(Column, Row, Format)", "Cell(A, 1)", "Cells(Row, Column)"], "question": "<p>  \tThe Cells object is used in the following manner:  </p>", "relatedLectureIds": ["1589562"], "feedbacks": ["", "", ""]}, "correct_response": ["c"], "updated": "2014-10-31T00:08:22Z", "section": "", "question_plain": "The Cells object is used in the following manner:", "related_lectures": [{"_class": "lecture", "id": 1589562, "title": "The Cells Object", "created": "2014-08-22T04:33:41Z", "asset": {"_class": "asset", "id": 8802592, "asset_type": "Video", "title": "03-01 Cells object (edited B1 not B2 callout).mp4", "created": "2017-06-26T02:21:40Z"}, "object_index": 21, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1589562"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 333454, "assessment_type": "multiple-choice", "created": "2014-10-31T00:09:56Z", "prompt": {"answers": ["True", "False"], "question": "<p>  \tInstead of a column number, I could just put the column letter, as long as I surround it by quotes. . .  </p>  <p>  \tSuch as Cells(1, &quot;A&quot;)    instead of Cells(1, 1)  </p>", "relatedLectureIds": ["1589564"]}, "correct_response": ["a"], "updated": "2014-10-31T00:09:56Z", "section": "", "question_plain": "Instead of a column number, I could just put the column letter, as long as I surround it by quotes. . .      \tSuch as Cells(1, &quot;A&quot;)    instead of Cells(1, 1)", "related_lectures": [{"_class": "lecture", "id": 1589564, "title": "Using Column Letters instead of Numbers", "created": "2014-08-22T04:34:32Z", "asset": {"_class": "asset", "id": 3199792, "asset_type": "Video", "title": "03-02 Cells object - Using Column letters instead of numbers.mp4", "created": "2015-04-27T03:21:17Z"}, "object_index": 22, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1589564"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 333456, "assessment_type": "multiple-choice", "created": "2014-10-31T00:14:58Z", "prompt": {"answers": ["Cells.Boldness = xlNotBold", "Cells.Font.Bold = False", "Cells.Font.Bold.False", "Cells.Font.Bold = True"], "question": "<p>  \tI want all the cells in this workbook to NOT be BOLD. Which one is correct??  </p>", "relatedLectureIds": ["1589568"], "feedbacks": ["", "", "", ""]}, "correct_response": ["b"], "updated": "2014-10-31T00:14:58Z", "section": "", "question_plain": "I want all the cells in this workbook to NOT be BOLD. Which one is correct??", "related_lectures": [{"_class": "lecture", "id": 1589568, "title": "Affecting ALL Cells in a Worksheet", "created": "2014-08-22T04:35:06Z", "asset": {"_class": "asset", "id": 3199848, "asset_type": "Video", "title": "03-04 Affect ALL Cells in a workbook.mp4", "created": "2015-04-27T03:28:20Z"}, "object_index": 24, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1589568"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

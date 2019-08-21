@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>002 Properties Quiz</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 270846, "assessment_type": "multiple-choice", "created": "2014-08-17T18:21:56Z", "prompt": {"relatedLectureIds": ["1570166"], "answers": ["True", "False"], "question": "<p>  \t  The correct syntax for making Cell A1 bold is  </p>  <p>  \t  Range(&quot;A1&quot;).Font = Bold  </p>"}, "correct_response": ["b"], "updated": "2014-10-27T05:03:07Z", "section": "", "question_plain": "The correct syntax for making Cell A1 bold is      \t  Range(&quot;A1&quot;).Font = Bold", "related_lectures": [{"_class": "lecture", "id": 1570166, "title": "FONT.BOLD, UNDERLINE or ITALIC Properties", "created": "2014-08-16T21:40:38Z", "asset": {"_class": "asset", "id": 3199716, "asset_type": "Video", "title": "19 - Properties - FONT.BOLD, ITALIC or UNDERLINE Property.mp4", "created": "2015-04-27T03:08:50Z"}, "object_index": 20, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1570166"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 270848, "assessment_type": "multiple-choice", "created": "2014-08-17T18:23:21Z", "prompt": {"feedbacks": ["", "", "", ""], "relatedLectureIds": ["1570150"], "answers": ["TEXT Property", "VALUE Property", "ROW Property", "COLUMN Property"], "question": "<p>  \t  The default property for a Range is :  </p>"}, "correct_response": ["b"], "updated": "2014-10-27T05:04:04Z", "section": "", "question_plain": "The default property for a Range is :", "related_lectures": [{"_class": "lecture", "id": 1570150, "title": ".VALUE Property", "created": "2014-08-16T21:37:56Z", "asset": {"_class": "asset", "id": 3195254, "asset_type": "Video", "title": "11 - Properties - VALUE Property.mp4", "created": "2015-04-26T03:59:37Z"}, "object_index": 12, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1570150"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 270850, "assessment_type": "multiple-choice", "created": "2014-08-17T18:28:26Z", "prompt": {"feedbacks": ["", "", "", ""], "relatedLectureIds": ["1570160"], "answers": ["MsgBox Range(\"a1\").Address(0, 0)", "MsgBox Range(\"a1\").Address(1, 0)", "MsgBox Range(\"a1\").Address(0, 1)", "MsgBox Range(\"a1\").Address(1, 1)"], "question": "<p>  \t    If you wanted to get the Absolute address (with all the dollar signs aka $A$1) of cell A1, you would type the following. . .  </p>"}, "correct_response": ["d"], "updated": "2014-10-27T05:07:31Z", "section": "", "question_plain": "If you wanted to get the Absolute address (with all the dollar signs aka $A$1) of cell A1, you would type the following. . .", "related_lectures": [{"_class": "lecture", "id": 1570160, "title": ".ADDRESS Property", "created": "2014-08-16T21:39:46Z", "asset": {"_class": "asset", "id": 3199688, "asset_type": "Video", "title": "16 - Properties - ADDRESS Property.mp4", "created": "2015-04-27T03:03:56Z"}, "object_index": 17, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1570160"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 270852, "assessment_type": "multiple-choice", "created": "2014-08-17T18:30:48Z", "prompt": {"answers": ["True", "False"], "relatedLectureIds": ["1570156"], "feedbacks": ["", ""], "question": "<p>To have Excel Select a certain cell or range, such as our \"tax_table\", you'd type </p><p>Range(\"tax_table\").Select<br></p>"}, "correct_response": ["a"], "updated": "2016-01-14T00:47:42Z", "section": "", "question_plain": "To have Excel Select a certain cell or range, such as our \"tax_table\", you'd type Range(\"tax_table\").Select", "related_lectures": [{"_class": "lecture", "id": 1570156, "title": ".SELECT Property", "created": "2014-08-16T21:39:07Z", "asset": {"_class": "asset", "id": 3199660, "asset_type": "Video", "title": "14 - Properties - SELECT Property.mp4", "created": "2015-04-27T02:58:34Z"}, "object_index": 15, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1570156"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

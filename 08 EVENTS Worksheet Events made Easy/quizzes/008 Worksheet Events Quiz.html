@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>008 Worksheet Events Quiz</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 397266, "assessment_type": "multiple-choice", "created": "2015-01-02T20:50:16Z", "prompt": {"question": "<p>  \tWorksheet events are contained within a separate module in the Visual Basic Editor and never within the worksheet itself as a container for the VBA code. . .  </p>", "relatedLectureIds": [], "answers": ["True", "False"]}, "correct_response": ["b"], "updated": "2015-01-02T20:50:16Z", "section": "", "question_plain": "Worksheet events are contained within a separate module in the Visual Basic Editor and never within the worksheet itself as a container for the VBA code. . .", "related_lectures": [], "original_assessment_id": 0}, {"_class": "assessment", "id": 397270, "assessment_type": "multiple-choice", "created": "2015-01-02T20:52:22Z", "prompt": {"question": "<p>  \tWorksheet events (which are contained in the worksheet you&#039;re working on) can refer to that worksheet as Me.  </p>  <p>  \tSo instead of:  </p>  <p>  \tThisworkbook.sheets(&quot;sheet1&quot;).range(&quot;a1&quot;) = &quot;hello&quot;  </p>  <p>  \tin this instance, you could just put:  </p>  <p>  \tMe.range(&quot;a1&quot;) = &quot;hello&quot;  </p>", "relatedLectureIds": [], "answers": ["True", "False"]}, "correct_response": ["a"], "updated": "2015-01-02T20:52:22Z", "section": "", "question_plain": "Worksheet events (which are contained in the worksheet you&#039;re working on) can refer to that worksheet as Me.      \tSo instead of:      \tThisworkbook.sheets(&quot;sheet1&quot;).range(&quot;a1&quot;) = &quot;hello&quot;      \tin this instance, you could just put:      \tMe.range(&quot;a1&quot;) = &quot;hello&quot;", "related_lectures": [], "original_assessment_id": 0}, {"_class": "assessment", "id": 397272, "assessment_type": "multiple-choice", "created": "2015-01-02T20:53:02Z", "prompt": {"question": "<p>  \tThe BeforeDoubleClick Event includes double right-clicking.  </p>", "relatedLectureIds": [], "answers": ["True", "False"]}, "correct_response": ["b"], "updated": "2015-01-02T20:53:02Z", "section": "", "question_plain": "The BeforeDoubleClick Event includes double right-clicking.", "related_lectures": [], "original_assessment_id": 0}, {"_class": "assessment", "id": 397274, "assessment_type": "multiple-choice", "created": "2015-01-02T20:58:35Z", "prompt": {"question": "<p>  \tA Worksheet_Change Event occurs or is triggered:  </p>", "relatedLectureIds": ["1685432"], "answers": ["When you click on a different cell", "When you modify the value of a cell and hit enter, tab or deselect the cell in any other way", "When you select a different worksheet or workbook", "By explosives. It is triggered by explosives."], "feedbacks": ["", "", "", ""]}, "correct_response": ["b"], "updated": "2015-01-02T20:58:35Z", "section": "", "question_plain": "A Worksheet_Change Event occurs or is triggered:", "related_lectures": [{"_class": "lecture", "id": 1685432, "title": "Intro to Change Event", "created": "2014-09-16T01:47:55Z", "asset": {"_class": "asset", "id": 3216790, "asset_type": "Video", "title": "08-09 Intro to Change Event.mp4", "created": "2015-04-29T02:41:38Z"}, "object_index": 93, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1685432"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

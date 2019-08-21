@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>004 Variables Quiz</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 333458, "assessment_type": "multiple-choice", "created": "2014-10-31T00:17:29Z", "prompt": {"answers": ["True", "False"], "relatedLectureIds": ["1589572"], "question": "<p>  \tA Variable takes on a value inside it to use later on. It&#039;s like a storage container of a small bit of system memory.  </p>"}, "correct_response": ["a"], "updated": "2014-10-31T00:17:29Z", "section": "", "question_plain": "A Variable takes on a value inside it to use later on. It&#039;s like a storage container of a small bit of system memory.", "related_lectures": [{"_class": "lecture", "id": 1589572, "title": "Intro to Variables", "created": "2014-08-22T04:36:05Z", "asset": {"_class": "asset", "id": 3199892, "asset_type": "Video", "title": "04-01 Intro to Variables.mp4", "created": "2015-04-27T03:36:53Z"}, "object_index": 26, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1589572"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 333460, "assessment_type": "multiple-choice", "created": "2014-10-31T00:18:16Z", "prompt": {"answers": ["True", "False"], "relatedLectureIds": ["1589574"], "question": "<p>  \tThis question is Boolean  </p>"}, "correct_response": ["a"], "updated": "2014-10-31T00:18:16Z", "section": "", "question_plain": "This question is Boolean", "related_lectures": [{"_class": "lecture", "id": 1589574, "title": "Declaring Variables - Variable Types", "created": "2014-08-22T04:36:16Z", "asset": {"_class": "asset", "id": 3199900, "asset_type": "Video", "title": "04-02 Declaring Variables - Variable Types.mp4", "created": "2015-04-27T03:39:38Z"}, "object_index": 27, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1589574"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 333468, "assessment_type": "multiple-choice", "created": "2014-10-31T00:23:25Z", "prompt": {"feedbacks": ["In order to Call the macro, try Call SallysMacro, or simply type SallysMacro on a new line", "In order to Call the macro, try Call SallysMacro, or simply type SallysMacro on a new line", "Correct! In order to Call the macro, try Call SallysMacro, or simply type SallysMacro on a new line", "In order to Call the macro, try Call SallysMacro, or simply type SallysMacro on a new line"], "answers": ["SallysMacro.Run", "SallysMacro Execute.Now", "Call SallysMacro", "SallysMacro = True"], "relatedLectureIds": ["1589582"], "question": "<p>  \t    How do I use the macro called SallysMacro() within my current macro?:  </p>  <p>  \t    Sub myMacro()  </p>  <p>  \t    msgbox &quot;Hello&quot;  </p>  <p>  \t    &lt;&lt;&lt;&lt;&lt;how do i insert it right here???  </p>  <p>  \t    End Sub  </p>"}, "correct_response": ["c"], "updated": "2014-12-08T22:46:57Z", "section": "", "question_plain": "How do I use the macro called SallysMacro() within my current macro?:      \t    Sub myMacro()      \t    msgbox &quot;Hello&quot;      \t    &lt;&lt;&lt;&lt;&lt;how do i insert it right here???      \t    End Sub", "related_lectures": [{"_class": "lecture", "id": 1589582, "title": "Calling a Procedure from Another", "created": "2014-08-22T04:36:41Z", "asset": {"_class": "asset", "id": 3199960, "asset_type": "Video", "title": "04-04 Calling a Procedure from Another Procedure.mp4", "created": "2015-04-27T03:46:16Z"}, "object_index": 29, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1589582"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 335670, "assessment_type": "multiple-choice", "created": "2014-11-01T16:02:04Z", "prompt": {"answers": ["Private myVariable As Double", "Public myVariable As Double", "Dim myVariable As Double", "Global myVariable As Double"], "feedbacks": ["", "", "", ""], "relatedLectureIds": "", "question": "<p>  \t<span><span>In order to make a variable that's globally available to any module, sheet or userform, you would use the following:</span></span></p>"}, "correct_response": ["b"], "updated": "2015-11-16T05:43:30Z", "section": "", "question_plain": "In order to make a variable that's globally available to any module, sheet or userform, you would use the following:", "related_lectures": [], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

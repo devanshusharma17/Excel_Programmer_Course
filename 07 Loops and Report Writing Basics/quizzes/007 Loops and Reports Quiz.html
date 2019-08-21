@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>007 Loops and Reports Quiz</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 397222, "assessment_type": "multiple-choice", "created": "2015-01-02T20:37:01Z", "prompt": {"question": "<p>  \tWhat&#039;s the correct syntax for a For Next loop?  </p>", "answers": ["For X is equal to 3 until 14\n     'stuff here\nNext X", "For X = 3 until 14\n     'stuff here\nNext X", "For X = 3 to 14\n     'stuff here\nNext X", "For X = 3 to 14\n     'stuff here\nNext X\nRepeat Loop"], "feedbacks": ["", "", "", ""], "relatedLectureIds": ["1626660"]}, "correct_response": ["c"], "updated": "2015-01-02T20:37:01Z", "section": "", "question_plain": "What&#039;s the correct syntax for a For Next loop?", "related_lectures": [{"_class": "lecture", "id": 1626660, "title": "Intro to Loops; the For Next Loop", "created": "2014-08-31T22:15:50Z", "asset": {"_class": "asset", "id": 3209756, "asset_type": "Video", "title": "07-01 Intro to Loops, For Next loop.mp4", "created": "2015-04-28T03:32:14Z"}, "object_index": 62, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1626660"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 397228, "assessment_type": "multiple-choice", "created": "2015-01-02T20:39:53Z", "prompt": {"question": "<p>  \tAn InputBox gathers the user&#039;s input from them typing something and hitting OK, but a MsgBox can handle buttons, such as Yes, No, Cancel, or OK. True or False?  </p>", "answers": ["True", "False"], "relatedLectureIds": ["1730314"]}, "correct_response": ["a"], "updated": "2015-01-02T20:39:53Z", "section": "", "question_plain": "An InputBox gathers the user&#039;s input from them typing something and hitting OK, but a MsgBox can handle buttons, such as Yes, No, Cancel, or OK. True or False?", "related_lectures": [{"_class": "lecture", "id": 1730314, "title": "Message Box with Yes and No Buttons", "created": "2014-09-27T03:19:44Z", "asset": {"_class": "asset", "id": 4691584, "asset_type": "Video", "title": "06-17 Message Box with Yes and No Buttons - VOLUME no dup.mp4", "created": "2015-11-23T05:51:57Z"}, "object_index": 58, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1730314"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 397234, "assessment_type": "multiple-choice", "created": "2015-01-02T20:42:52Z", "prompt": {"question": "<p>  \tTo automatically do a print preview in your macro, it&#039;s easy. Just put .PrintPreview behind the Range or sheet  </p>", "answers": ["True", "False"], "relatedLectureIds": ["1634784"]}, "correct_response": ["a"], "updated": "2015-01-02T20:42:52Z", "section": "", "question_plain": "To automatically do a print preview in your macro, it&#039;s easy. Just put .PrintPreview behind the Range or sheet", "related_lectures": [{"_class": "lecture", "id": 1634784, "title": "Using PrintPreview Automatically", "created": "2014-09-02T23:38:42Z", "asset": {"_class": "asset", "id": 3209962, "asset_type": "Video", "title": "07-12 Using PrintPreview Automatically.mp4", "created": "2015-04-28T04:05:40Z"}, "object_index": 73, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1634784"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 397252, "assessment_type": "multiple-choice", "created": "2015-01-02T20:47:35Z", "prompt": {"question": "<p>  \tHere&#039;s how you&#039;d loop backwards from 100 to 1 going one at a time:  </p>", "answers": ["For X = 100 to 1 Backwards\n     'stuff here\nNext X", "For X is 100 to 1 GoBack\n     'stuff here\nNext X", "For X = 100 to 1 Step -1\n     'stuff here\nNext X"], "feedbacks": ["", "", ""], "relatedLectureIds": ["1685174"]}, "correct_response": ["c"], "updated": "2015-01-02T20:47:35Z", "section": "", "question_plain": "Here&#039;s how you&#039;d loop backwards from 100 to 1 going one at a time:", "related_lectures": [{"_class": "lecture", "id": 1685174, "title": "For Loop Going Backwards using STEP", "created": "2014-09-16T00:52:54Z", "asset": {"_class": "asset", "id": 3210012, "asset_type": "Video", "title": "07-15 For Loop Going Backwards using Step.mp4", "created": "2015-04-28T04:17:54Z"}, "object_index": 76, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1685174"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>
