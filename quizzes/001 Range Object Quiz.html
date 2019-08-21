@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>001 Range Object Quiz</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 270862, "assessment_type": "multiple-choice", "created": "2014-08-17T18:37:10Z", "prompt": {"feedbacks": ["", "", "", ""], "answers": ["talk into your smartphone and say \"Add Developer Tab to my Excel\"", "click Ctrl + Shift + D for Developer", "go to File>Options>Customize Ribbon and check the box that says Developer on the right.", "press Alt + F4"], "relatedLectureIds": ["1519136"], "question": "<p>  \t  To get the Developer Tab, do the following:  </p>"}, "correct_response": ["c"], "updated": "2014-10-27T05:03:37Z", "section": "", "question_plain": "To get the Developer Tab, do the following:", "related_lectures": [{"_class": "lecture", "id": 1519136, "title": "Get the Developer Tab and Intro to Developer Tab", "created": "2014-08-02T18:13:47Z", "asset": {"_class": "asset", "id": 3190582, "asset_type": "Video", "title": "01 - Grabbing the Developer Tab and Intro to Developer Tab.mp4", "created": "2015-04-25T03:24:03Z"}, "object_index": 2, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1519136"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 270864, "assessment_type": "multiple-choice", "created": "2014-08-17T18:38:55Z", "prompt": {"answers": ["True", "False"], "relatedLectureIds": ["1519206"], "question": "<p>  \t  To change cell B4 to the number 45, enter Range(&quot;B4&quot;) = 45  </p>"}, "correct_response": ["a"], "updated": "2014-10-27T05:06:41Z", "section": "", "question_plain": "To change cell B4 to the number 45, enter Range(&quot;B4&quot;) = 45", "related_lectures": [{"_class": "lecture", "id": 1519206, "title": "Getting started with Range object", "created": "2014-08-02T19:07:18Z", "asset": {"_class": "asset", "id": 3195122, "asset_type": "Video", "title": "02 - Intro to the Range Object.mp4", "created": "2015-04-26T03:28:53Z"}, "object_index": 3, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1519206"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 270870, "assessment_type": "multiple-choice", "created": "2014-08-17T18:49:01Z", "prompt": {"feedbacks": ["", "", "", ""], "answers": ["Numbers", "Smiley Faces", "Quotes", "Parenthesis"], "relatedLectureIds": ["1570146"], "question": "<p>  \t  In order to put Text Strings into a range, you need to surround your text with:  </p>"}, "correct_response": ["c"], "updated": "2014-10-27T05:07:06Z", "section": "", "question_plain": "In order to put Text Strings into a range, you need to surround your text with:", "related_lectures": [{"_class": "lecture", "id": 1570146, "title": "Adding Strings of Text to a Cell", "created": "2014-08-16T21:33:54Z", "asset": {"_class": "asset", "id": 3195216, "asset_type": "Video", "title": "09 - Adding Strings of Text to a Cell.mp4", "created": "2015-04-26T03:51:55Z"}, "object_index": 10, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1570146"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 322030, "assessment_type": "multiple-choice", "created": "2014-10-27T05:00:50Z", "prompt": {"feedbacks": ["This would work but it's an old-school type of file", "This is a macro enable workbook!", "not quite", "This is a regular workbook, no macros."], "answers": [".xls", ".xlsm", ".xlst", ".xlsx"], "relatedLectureIds": ["1519232"], "question": "<p>  \t  If you want to save your workbook as MacroEnabled workbook, you need to save it with the following extension:  </p>"}, "correct_response": ["b"], "updated": "2014-10-27T05:02:29Z", "section": "", "question_plain": "If you want to save your workbook as MacroEnabled workbook, you need to save it with the following extension:", "related_lectures": [{"_class": "lecture", "id": 1519232, "title": "Saving a Macro-Enabled Workbook (.xlsm)", "created": "2014-08-02T19:15:14Z", "asset": {"_class": "asset", "id": 3195176, "asset_type": "Video", "title": "06 - Saving a Macro-Enabled Workbook (.xlsm).mp4", "created": "2015-04-26T03:39:47Z"}, "object_index": 7, "url": "/ultimate-excel-programmer/learn/v4/t/lecture/1519232"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>
